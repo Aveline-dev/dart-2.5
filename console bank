@@ -1,0 +1,45 @@
+void main() {
+  Consolebank bank= Consolebank(accountName:'Evelyn', accountNumber:'0987');
+  bank.getAccountBalance();
+  bank.deposit(500);
+  bank.withdrawal(200);
+  bank.getAccountBalance();
+  }
+/*For this assignment, you're expected to build a console bank. A user should be able to deposit, withdraw and view their account balance.
+Create a class with a suitable name that has the following fields/properties
+Account name
+Account number
+Account balance
+Also create methods that handle the following:
+Check the available balance of the user.
+Increase the available balance of the user when a deposit is made.
+Decrease the available balance of the user when a withdrawal is made.
+Use control flow statements to handle the following:
+Display a message in the console that says "Insufficient funds!" when the user tries to withdraw more than the available balance.
+Display a message in the console that says "Money deposited successfully!" when the user deposits money.*/
+
+class Consolebank{
+  String accountName;
+  String accountNumber;
+  double accountBalance = 0.0;
+  
+  Consolebank({this.accountName, this.accountNumber});
+    
+  void getAccountBalance(){
+  print('$accountName your account with number $accountNumber has a balance of $accountBalance');
+  }
+  String deposit(double amount){
+    accountBalance += amount;
+     print('Money Deposited Successfully');
+    return 'You have successfully deposited $amount and your available balance is now $accountBalance';
+  }
+  String withdrawal(double amount){
+    if(amount > accountBalance){
+    print('Insufficient Funds');
+    }
+    else{
+    accountBalance -= amount;
+    }
+    return 'You just made a withdrawal of $amount and your available balance is $accountBalance';
+    }
+}
